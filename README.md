@@ -1,41 +1,45 @@
 # Database
-Database schema & Utilities
+This repository contains essential resources for migrating a legacy database to a modern Postgres environment, with a focus on internationalization support.
+## General Information
 
-## Important notes
-1. Ensure that the PostgreSQL username is "postgres" to migrate data since the owner of tables are hardcoded to user "postgres"
-2. Generally The Host Is localhost And The Port Is 5432 
+- **Legacy Database**: A SQL dump of the existing database schema.
+- **Postgres**: The target database system for migration.
+- **Script for i18n**: A SQL script for altering the existing database schema to support internationalization.
 
-## Step By Step Commands For Datamigration
+## Steps for migration
+To migrate your database to Heroku Postgres, follow these steps. It is assumed that you have Heroku CLI installed and are logged in to your Heroku account.
 
-### Create a New Database 
-```sh
-createdb [database_name]
-```
+1. **Create a new Heroku app**: 
+    ```bash
+    heroku create <app-name>
+    ```
 
-### Check Which Port And Host Is Configured By Opening The PSQL Command-line
-```sh
-psql -U username -d database_name
-```
+2. **Add Heroku Postgres as an add-on**: 
+    ```bash
+    heroku addons:create heroku-postgresql:mini --app <app-name>
+    ```
 
-### Check Port Number 
-```sh
-SHOW data_directory;
-SHOW port;
-```
+3. **Retrieve the database add-on name**: 
+    ```bash
+    heroku pg:info --app <app-name>
+    ```
 
-### Find The hba_file Containing Host Value
-```sh
-SHOW hba_file;
-```
+4. **Restore the database**: 
+    ```bash
+    heroku pg:psql <add-on-name> --app <app-name> < heroku-dump-2024-02-07.sql
+    ```
+5. **Run the i18n script**: 
+    ```bash
+    heroku pg:psql <add-on-name> --app <app-name> < alter_competence_table.sql
+    ```
 
-#### Exit PSQL Command-line And Find The Host Value
-```sh
-nano /path/to/pg_hba.conf
-```
-
-### Dump All Data Into The New Database
-```sh
-psql -h [host] -U postgres -p [port] -d [new_database] -a -f postgresg2_dump.sql
-```
+6. **Connect to database**: 
+    ```bash
+    heroku pg:psql <add-on-name> --app <app-name>
+    ```
 
 
+## File Descriptions
+
+- `heroku-dump-2024-02-07.sql`: A Postgres-compatible dump of the legacy database.
+- `alter_competence_table.sql`: SQL script to update the schema of the competence table to support internationalization.
