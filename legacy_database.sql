@@ -2,10 +2,8 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 15.5 (Ubuntu 15.5-1.pgdg20.04+1)
--- Dumped by pg_dump version 16.1
-
--- Started on 2024-02-07 09:47:24 CET
+-- Dumped from database version 13.6 (Ubuntu 13.6-0ubuntu0.21.10.1)
+-- Dumped by pg_dump version 13.6 (Ubuntu 13.6-0ubuntu0.21.10.1)
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -17,73 +15,13 @@ SET check_function_bodies = false;
 SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
-
---
--- TOC entry 4364 (class 1262 OID 27796154)
--- Name: d98rnd5j9f2tp2; Type: DATABASE; Schema: -; Owner: -
---
-
-CREATE DATABASE d98rnd5j9f2tp2 WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE_PROVIDER = libc LOCALE = 'en_US.UTF-8';
-
-
-\connect d98rnd5j9f2tp2
-
-SET statement_timeout = 0;
-SET lock_timeout = 0;
-SET idle_in_transaction_session_timeout = 0;
-SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
-SELECT pg_catalog.set_config('search_path', '', false);
-SET check_function_bodies = false;
-SET xmloption = content;
-SET client_min_messages = warning;
-SET row_security = off;
-
---
--- TOC entry 4366 (class 0 OID 0)
--- Name: d98rnd5j9f2tp2; Type: DATABASE PROPERTIES; Schema: -; Owner: -
---
-
-ALTER DATABASE d98rnd5j9f2tp2 SET search_path TO '$user', 'public', 'heroku_ext';
-
-
-\connect d98rnd5j9f2tp2
-
-SET statement_timeout = 0;
-SET lock_timeout = 0;
-SET idle_in_transaction_session_timeout = 0;
-SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
-SELECT pg_catalog.set_config('search_path', '', false);
-SET check_function_bodies = false;
-SET xmloption = content;
-SET client_min_messages = warning;
-SET row_security = off;
-
---
--- TOC entry 6 (class 2615 OID 2200)
--- Name: public; Type: SCHEMA; Schema: -; Owner: -
---
-
-CREATE SCHEMA public;
-
-
---
--- TOC entry 4367 (class 0 OID 0)
--- Dependencies: 6
--- Name: SCHEMA public; Type: COMMENT; Schema: -; Owner: -
---
-
-COMMENT ON SCHEMA public IS 'standard public schema';
-
 
 SET default_tablespace = '';
 
 SET default_table_access_method = heap;
 
 --
--- TOC entry 218 (class 1259 OID 28202370)
--- Name: availability; Type: TABLE; Schema: public; Owner: -
+-- Name: availability; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.availability (
@@ -94,9 +32,10 @@ CREATE TABLE public.availability (
 );
 
 
+ALTER TABLE public.availability OWNER TO postgres;
+
 --
--- TOC entry 219 (class 1259 OID 28202373)
--- Name: availability_availability_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: availability_availability_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 ALTER TABLE public.availability ALTER COLUMN availability_id ADD GENERATED ALWAYS AS IDENTITY (
@@ -110,8 +49,7 @@ ALTER TABLE public.availability ALTER COLUMN availability_id ADD GENERATED ALWAY
 
 
 --
--- TOC entry 220 (class 1259 OID 28202374)
--- Name: competence; Type: TABLE; Schema: public; Owner: -
+-- Name: competence; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.competence (
@@ -120,9 +58,10 @@ CREATE TABLE public.competence (
 );
 
 
+ALTER TABLE public.competence OWNER TO postgres;
+
 --
--- TOC entry 221 (class 1259 OID 28202377)
--- Name: competence_competence_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: competence_competence_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 ALTER TABLE public.competence ALTER COLUMN competence_id ADD GENERATED ALWAYS AS IDENTITY (
@@ -136,8 +75,7 @@ ALTER TABLE public.competence ALTER COLUMN competence_id ADD GENERATED ALWAYS AS
 
 
 --
--- TOC entry 222 (class 1259 OID 28202378)
--- Name: competence_profile; Type: TABLE; Schema: public; Owner: -
+-- Name: competence_profile; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.competence_profile (
@@ -148,9 +86,10 @@ CREATE TABLE public.competence_profile (
 );
 
 
+ALTER TABLE public.competence_profile OWNER TO postgres;
+
 --
--- TOC entry 223 (class 1259 OID 28202381)
--- Name: competence_profile_competence_profile_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: competence_profile_competence_profile_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 ALTER TABLE public.competence_profile ALTER COLUMN competence_profile_id ADD GENERATED ALWAYS AS IDENTITY (
@@ -164,8 +103,7 @@ ALTER TABLE public.competence_profile ALTER COLUMN competence_profile_id ADD GEN
 
 
 --
--- TOC entry 224 (class 1259 OID 28202382)
--- Name: person; Type: TABLE; Schema: public; Owner: -
+-- Name: person; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.person (
@@ -180,9 +118,10 @@ CREATE TABLE public.person (
 );
 
 
+ALTER TABLE public.person OWNER TO postgres;
+
 --
--- TOC entry 225 (class 1259 OID 28202387)
--- Name: person_person_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: person_person_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 ALTER TABLE public.person ALTER COLUMN person_id ADD GENERATED ALWAYS AS IDENTITY (
@@ -196,8 +135,7 @@ ALTER TABLE public.person ALTER COLUMN person_id ADD GENERATED ALWAYS AS IDENTIT
 
 
 --
--- TOC entry 226 (class 1259 OID 28202388)
--- Name: role; Type: TABLE; Schema: public; Owner: -
+-- Name: role; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.role (
@@ -206,9 +144,10 @@ CREATE TABLE public.role (
 );
 
 
+ALTER TABLE public.role OWNER TO postgres;
+
 --
--- TOC entry 227 (class 1259 OID 28202391)
--- Name: role_role_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: role_role_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 ALTER TABLE public.role ALTER COLUMN role_id ADD GENERATED ALWAYS AS IDENTITY (
@@ -222,9 +161,7 @@ ALTER TABLE public.role ALTER COLUMN role_id ADD GENERATED ALWAYS AS IDENTITY (
 
 
 --
--- TOC entry 4349 (class 0 OID 28202370)
--- Dependencies: 218
--- Data for Name: availability; Type: TABLE DATA; Schema: public; Owner: -
+-- Data for Name: availability; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.availability (availability_id, person_id, from_date, to_date) FROM stdin;
@@ -2556,9 +2493,7 @@ COPY public.availability (availability_id, person_id, from_date, to_date) FROM s
 
 
 --
--- TOC entry 4351 (class 0 OID 28202374)
--- Dependencies: 220
--- Data for Name: competence; Type: TABLE DATA; Schema: public; Owner: -
+-- Data for Name: competence; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.competence (competence_id, name) FROM stdin;
@@ -2569,9 +2504,7 @@ COPY public.competence (competence_id, name) FROM stdin;
 
 
 --
--- TOC entry 4353 (class 0 OID 28202378)
--- Dependencies: 222
--- Data for Name: competence_profile; Type: TABLE DATA; Schema: public; Owner: -
+-- Data for Name: competence_profile; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.competence_profile (competence_profile_id, person_id, competence_id, years_of_experience) FROM stdin;
@@ -3936,12 +3869,20 @@ COPY public.competence_profile (competence_profile_id, person_id, competence_id,
 
 
 --
--- TOC entry 4355 (class 0 OID 28202382)
--- Dependencies: 224
--- Data for Name: person; Type: TABLE DATA; Schema: public; Owner: -
+-- Data for Name: person; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.person (person_id, name, surname, pnr, email, password, role_id, username) FROM stdin;
+1	Joelle	Wilkinson	\N	\N	LiZ98qvL8Lw	1	JoelleWilkinson
+2	Martin	Cummings	\N	\N	QkK48drV2Da	1	MartinCummings
+3	Dante	Mason	\N	\N	EyD84euX5Nj	1	DanteMason
+4	Risa	Mayer	\N	\N	VdE34mqY2Xy	1	RisaMayer
+5	Maxwell	Bailey	\N	\N	NmK87boS4Lf	1	MaxwellBailey
+6	Emi	Flowers	\N	\N	LqK20ygU3Lw	1	EmiFlowers
+7	Hedley	Arnold	\N	\N	OjP41mkY3Vb	1	HedleyArnold
+8	Armand	Todd	\N	\N	LbH38urF4Kn	1	ArmandTodd
+9	Phillip	Ramsey	\N	\N	XoH15hnY3Bw	1	PhillipRamsey
+10	Austin	Mueller	\N	\N	MvZ46kfC1Kr	1	AustinMueller
 11	Leroy	Crane	20070114-1252	l_crane118@finnsinte.se	\N	2	\N
 12	Aristotle	Meadows	20030413-5765	a-meadows7789@finnsinte.se	\N	2	\N
 13	Tucker	Travis	20090317-7750	tucker-travis2407@finnsinte.se	\N	2	\N
@@ -4020,11 +3961,6 @@ COPY public.person (person_id, name, surname, pnr, email, password, role_id, use
 86	Chandler	Stout	20060314-1151	stout_chandler@finnsinte.se	\N	2	\N
 87	Imelda	Hutchinson	20000812-7515	h-imelda@finnsinte.se	\N	2	\N
 88	Scott	Hendrix	20050511-3717	s_hendrix@finnsinte.se	\N	2	\N
-3	Dante	Mason	\N	\N	$2a$10$dHUpUdIDlaTdeCKT72yR0eMqvksnb0a12eZqbibdXHkaBa4a.wGvu	1	DanteMason
-4	Risa	Mayer	\N	\N	$2a$10$.gUoqCHp0CK5tGc8EkVuweyR3NfIgvEygO.8wX1FlNHpBROW24pUW	1	RisaMayer
-6	Emi	Flowers	\N	\N	$2a$10$jMzc2JyRtXWVg6/ifcvlruqkSNPO/UhPZy8u4LJRHybr4PJ2e.9NK	1	EmiFlowers
-8	Armand	Todd	\N	\N	$2a$10$yIPpmqCDPjephGran/x8O.9fcVfDoW/vWmGsm96DHaBxMPLA0YHay	1	ArmandTodd
-9	Phillip	Ramsey	\N	\N	$2a$10$.S.N31eRhMIgjUMX91KTb.5aQdwR15iiS10gIC9rx3cf1bGXN23Wq	1	PhillipRamsey
 89	Cairo	Garner	20070913-4461	gcairo8535@finnsinte.se	\N	2	\N
 90	Meghan	Little	20030517-4367	m.little@finnsinte.se	\N	2	\N
 91	Galvin	Cummings	20030613-1885	cummings-galvin440@finnsinte.se	\N	2	\N
@@ -4837,18 +4773,11 @@ COPY public.person (person_id, name, surname, pnr, email, password, role_id, use
 898	Robert	Gutierrez	20040318-5722	r_gutierrez@finnsinte.se	\N	2	\N
 899	Odysseus	Decker	20030715-5825	o.decker@finnsinte.se	\N	2	\N
 900	Simon	Gallagher	20040911-1699	sgallagher8213@finnsinte.se	\N	2	\N
-1	Joelle	Wilkinson	\N	\N	$2a$10$3eMw8D4Yjci9uD7HNS5z8eaL4QI8dOTHRyteq7N9.Uy75Ir21TTZa	1	JoelleWilkinson
-2	Martin	Cummings	\N	\N	$2a$10$UKz2b3acnPpy5BFTMoLWm.J6vlgnAc7.gC60unTZxoUJ6smsJc1nu	1	MartinCummings
-5	Maxwell	Bailey	\N	\N	$2a$10$zOIc62kkdx1fFG8sKS4F5eawEiLGVvYpav3UgItBmOlXiKp/Knl8G	1	MaxwellBailey
-7	Hedley	Arnold	\N	\N	$2a$10$T1CPlriYyIZPo8jlAA5hhOqi657.9oOHT9mL4vOuy3MS1j2OQ6EqS	1	HedleyArnold
-10	Austin	Mueller	\N	\N	$2a$10$J0Drm2P.X6/PpYcFpRpVuunMLFbhkRPYNEGKvbMc/QF0lJ78bntqG	1	AustinMueller
 \.
 
 
 --
--- TOC entry 4357 (class 0 OID 28202388)
--- Dependencies: 226
--- Data for Name: role; Type: TABLE DATA; Schema: public; Owner: -
+-- Data for Name: role; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.role (role_id, name) FROM stdin;
@@ -4858,53 +4787,42 @@ COPY public.role (role_id, name) FROM stdin;
 
 
 --
--- TOC entry 4369 (class 0 OID 0)
--- Dependencies: 219
--- Name: availability_availability_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+-- Name: availability_availability_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.availability_availability_id_seq', 20862, true);
 
 
 --
--- TOC entry 4370 (class 0 OID 0)
--- Dependencies: 221
--- Name: competence_competence_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+-- Name: competence_competence_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.competence_competence_id_seq', 3, true);
 
 
 --
--- TOC entry 4371 (class 0 OID 0)
--- Dependencies: 223
--- Name: competence_profile_competence_profile_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+-- Name: competence_profile_competence_profile_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.competence_profile_competence_profile_id_seq', 6487, true);
 
 
 --
--- TOC entry 4372 (class 0 OID 0)
--- Dependencies: 225
--- Name: person_person_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+-- Name: person_person_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.person_person_id_seq', 1010, true);
 
 
 --
--- TOC entry 4373 (class 0 OID 0)
--- Dependencies: 227
--- Name: role_role_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+-- Name: role_role_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.role_role_id_seq', 2, true);
 
 
 --
--- TOC entry 4192 (class 2606 OID 28202393)
--- Name: availability availability_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: availability availability_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.availability
@@ -4912,8 +4830,7 @@ ALTER TABLE ONLY public.availability
 
 
 --
--- TOC entry 4194 (class 2606 OID 28202395)
--- Name: competence competence_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: competence competence_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.competence
@@ -4921,8 +4838,7 @@ ALTER TABLE ONLY public.competence
 
 
 --
--- TOC entry 4196 (class 2606 OID 28202397)
--- Name: competence_profile competence_profile_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: competence_profile competence_profile_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.competence_profile
@@ -4930,8 +4846,7 @@ ALTER TABLE ONLY public.competence_profile
 
 
 --
--- TOC entry 4198 (class 2606 OID 28202399)
--- Name: person person_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: person person_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.person
@@ -4939,8 +4854,7 @@ ALTER TABLE ONLY public.person
 
 
 --
--- TOC entry 4200 (class 2606 OID 28202401)
--- Name: role role_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: role role_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.role
@@ -4948,8 +4862,7 @@ ALTER TABLE ONLY public.role
 
 
 --
--- TOC entry 4201 (class 2606 OID 28202402)
--- Name: availability availability_person_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: availability availability_person_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.availability
@@ -4957,8 +4870,7 @@ ALTER TABLE ONLY public.availability
 
 
 --
--- TOC entry 4202 (class 2606 OID 28202407)
--- Name: competence_profile competence_profile_competence_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: competence_profile competence_profile_competence_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.competence_profile
@@ -4966,8 +4878,7 @@ ALTER TABLE ONLY public.competence_profile
 
 
 --
--- TOC entry 4203 (class 2606 OID 28202412)
--- Name: competence_profile competence_profile_person_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: competence_profile competence_profile_person_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.competence_profile
@@ -4975,33 +4886,12 @@ ALTER TABLE ONLY public.competence_profile
 
 
 --
--- TOC entry 4204 (class 2606 OID 28202417)
--- Name: person person_role_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+-- Name: person person_role_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.person
     ADD CONSTRAINT person_role_id_fkey FOREIGN KEY (role_id) REFERENCES public.role(role_id);
 
-
---
--- TOC entry 4365 (class 0 OID 0)
--- Dependencies: 4364
--- Name: DATABASE d98rnd5j9f2tp2; Type: ACL; Schema: -; Owner: -
---
-
-REVOKE CONNECT,TEMPORARY ON DATABASE d98rnd5j9f2tp2 FROM PUBLIC;
-
-
---
--- TOC entry 4368 (class 0 OID 0)
--- Dependencies: 872
--- Name: LANGUAGE plpgsql; Type: ACL; Schema: -; Owner: -
---
-
-GRANT ALL ON LANGUAGE plpgsql TO odphngpalzgmce;
-
-
--- Completed on 2024-02-07 09:47:28 CET
 
 --
 -- PostgreSQL database dump complete

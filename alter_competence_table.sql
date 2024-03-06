@@ -1,8 +1,8 @@
 -- Rename column 'name' to 'i18n_key'
-ALTER TABLE public.competence RENAME COLUMN name TO i18n_key;
+ALTER TABLE competence RENAME COLUMN name TO i18n_key;
 
 -- Update entries in 'i18n_key' column
-UPDATE public.competence
+UPDATE competence
 SET i18n_key =
     CASE competence_id
         WHEN 1 THEN 'ticket-sales'
